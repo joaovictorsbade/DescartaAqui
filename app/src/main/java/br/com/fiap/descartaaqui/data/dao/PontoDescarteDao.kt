@@ -8,11 +8,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PontoDescarteDao {
-
     @Insert
     suspend fun inserirPonto(ponto: PontoDescarte)
 
-    // Alterado para retornar Flow para dados reativos
     @Query("SELECT * FROM pontos_descarte")
-    fun listarTodos(): Flow<List<PontoDescarte>>
+    fun listarTodos(): Flow<List<PontoDescarte>>  // Retorna Flow para reatividade
 }
+

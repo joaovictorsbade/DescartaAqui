@@ -1,4 +1,4 @@
-package br.com.fiap.descartaaqui.ui.viewmodel
+package br.com.fiap.descartaaqui.data.repository
 
 import br.com.fiap.descartaaqui.data.dao.PontoDescarteDao
 import br.com.fiap.descartaaqui.data.model.PontoDescarte
@@ -7,10 +7,11 @@ import kotlinx.coroutines.flow.Flow
 class PontoDescarteRepository(private val dao: PontoDescarteDao) {
 
     // Agora o Flow é obtido diretamente do DAO
-    val pontos: Flow<List<PontoDescarte>> = dao.listarTodos()
+    val pontos: Flow<List<PontoDescarte>> = dao.listarTodos()  // Corrigir para listarTodos()
 
     // Função para inserir um ponto de descarte
     suspend fun inserirPonto(ponto: PontoDescarte) {
         dao.inserirPonto(ponto)
     }
 }
+
